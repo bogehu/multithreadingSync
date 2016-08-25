@@ -5,7 +5,7 @@ package sync;
  */
 public class SyncThreadTest {
     public static void main(String[] args) {
-        final Bank bank=new Bank();
+        final Bank2 bank2=new Bank2();
         final Thread threadAdd=new Thread(new Runnable() {
             public void run() {
                 while (true){
@@ -13,8 +13,8 @@ public class SyncThreadTest {
                         Thread.sleep(1000);
                     }
                     catch (InterruptedException e){e.printStackTrace();}
-                    bank.addMoney(100);
-                    bank.checkMoney();
+                    bank2.addMoney(100);
+                    bank2.checkMoney();
                     System.out.println("\n");
                 }
 
@@ -24,8 +24,8 @@ public class SyncThreadTest {
         Thread threadExtract=new Thread(new Runnable() {
             public void run() {
                 while (true){
-                    bank.extractMoney(100);
-                    bank.checkMoney();
+                    bank2.extractMoney(100);
+                    bank2.checkMoney();
                     System.out.println("\n");
                     try{Thread.sleep(1000);}
                     catch (InterruptedException e){e.printStackTrace();}
